@@ -1,4 +1,4 @@
-[{
+export const creatureArray = [{
 	"index": 1,
 	"name": "Aboleth",
 	"size": "Large",
