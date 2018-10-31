@@ -1,10 +1,12 @@
 const express = require('express')
 const app = express()
-const port = 3000
-const monk = require('monk')
-const db = monk('')
-const url = ''
+const bodyParser = require('body-parser')
+const port = 3001
+const Joi = require('joi')
+const db = require('monk')('mongodb://zigzbox:therebedagrons1@ds050087.mlab.com:50087/creature-list-5e')
 
-app.get('/', (req, res) => res.send('Hello World!'))
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.post('/CreatureList', validateNewCreature, (req, res) => {
+    const savedCreature = encounterCreator.insert(req.body)
+    res.send(savedCreature)
+})
